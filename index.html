@@ -392,45 +392,76 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
-      align-items: start;
+      align-items: center;
     }
 
-    .eco-media {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .eco-card {
-      background: var(--pink-soft);
-      border-radius: 16px;
-      padding: 22px;
+    .eco-visual {
+      aspect-ratio: 1 / 1;
+      background: var(--pink);
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 130px;
-      transition: background 0.2s ease;
+      align-items: center;
+      justify-content: center;
     }
 
-    .eco-card.dark {
-      background: var(--ink);
+    .eco-visual::before,
+    .eco-visual::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .eco-visual::before { width: 56%; height: 56%; }
+    .eco-visual::after { width: 86%; height: 86%; }
+
+    .eco-core {
+      position: relative;
+      z-index: 2;
       color: #fff;
-    }
-
-    .eco-card.dark .eco-card-label { color: rgba(255, 255, 255, 0.6); }
-
-    .eco-card-name {
-      font-size: 18px;
+      font-size: clamp(40px, 5vw, 64px);
       font-weight: 600;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.03em;
+      font-style: italic;
     }
 
-    .eco-card-label {
-      font-size: 12px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+    .eco-visual { --orbit: 180px; }
+
+    .eco-tag {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: #fff;
+      color: var(--ink);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
       font-weight: 500;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      z-index: 3;
+      white-space: nowrap;
+      animation: orbit 28s linear infinite;
+      will-change: transform;
+    }
+
+    .eco-tag:nth-child(1) { animation-delay: 0s; }
+    .eco-tag:nth-child(2) { animation-delay: -7s; }
+    .eco-tag:nth-child(3) { animation-delay: -14s; }
+    .eco-tag:nth-child(4) { animation-delay: -21s; }
+
+    @keyframes orbit {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg) translateY(calc(var(--orbit) * -1)) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) rotate(360deg) translateY(calc(var(--orbit) * -1)) rotate(-360deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .eco-tag { animation-duration: 0s; }
     }
 
     .eco-list { list-style: none; padding: 0; margin: 32px 0 0; }
@@ -447,6 +478,15 @@
 
     @media (max-width: 900px) {
       .eco-grid { grid-template-columns: 1fr; gap: 40px; }
+      .eco-grid > .eco-visual { order: -1; }
+      .eco-visual { aspect-ratio: 1 / 1; max-width: 480px; width: 100%; margin: 0 auto; --orbit: 150px; }
+      .eco-tag { font-size: 13px; padding: 7px 14px; }
+      .eco-core { font-size: clamp(36px, 9vw, 56px); }
+    }
+
+    @media (max-width: 520px) {
+      .eco-visual { --orbit: 115px; }
+      .eco-tag { font-size: 12px; padding: 6px 12px; }
     }
 
     /* CTA */
@@ -519,7 +559,7 @@
       <h1>Multiplicamos a <span class="accent">audiência</span> do sertanejo.</h1>
       <p class="lead">
         A Nejo coloca o artista em <strong>todas as telas</strong>, do TikTok ao palco,
-        do streaming à rádio. Trabalhamos pra fazer cada nome do sertanejo
+        do streaming às redes. Trabalhamos pra fazer cada nome do sertanejo
         <strong>ser visto por mais gente</strong>, todo dia.
       </p>
       <div class="hero-actions">
@@ -567,7 +607,7 @@
         <div class="pillar">
           <span class="pillar-num">02, MÍDIA</span>
           <h3>O artista em todo lugar.</h3>
-          <p><strong>Distribuição inteligente</strong> de conteúdo em rádio, streaming, redes, portais e influenciadores. A gente garante <strong>presença onde o público tá</strong>.</p>
+          <p><strong>Distribuição inteligente</strong> de conteúdo em streaming, redes sociais, portais e influenciadores. A gente garante <strong>presença onde o público tá</strong>.</p>
         </div>
         <div class="pillar">
           <span class="pillar-num">03, VISIBILIDADE</span>
@@ -614,42 +654,23 @@
           <h2>O artista presente onde o público tá.</h2>
           <p class="section-lead">
             A gente coloca o sertanejo em <strong>todas as telas</strong>. Da playlist
-            do streaming ao feed da rede social, do clipe na TV ao podcast, onde tem
-            público, <strong>a Nejo coloca o artista na frente</strong>.
+            do streaming ao feed da rede social, onde tem público,
+            <strong>a Nejo coloca o artista na frente</strong>.
           </p>
 
           <ul class="eco-list">
             <li>Streaming e playlists <span class="arrow">→</span></li>
             <li>Redes sociais e virais <span class="arrow">→</span></li>
-            <li>Rádio, TV e podcasts <span class="arrow">→</span></li>
-            <li>Portais e influenciadores <span class="arrow">→</span></li>
+            <li>Portais e imprensa <span class="arrow">→</span></li>
+            <li>Influenciadores e creators <span class="arrow">→</span></li>
           </ul>
         </div>
-        <div class="eco-media">
-          <div class="eco-card">
-            <span class="eco-card-label">Vídeo</span>
-            <span class="eco-card-name">TikTok</span>
-          </div>
-          <div class="eco-card dark">
-            <span class="eco-card-label">Vídeo</span>
-            <span class="eco-card-name">YouTube</span>
-          </div>
-          <div class="eco-card dark">
-            <span class="eco-card-label">Áudio</span>
-            <span class="eco-card-name">Spotify</span>
-          </div>
-          <div class="eco-card">
-            <span class="eco-card-label">Social</span>
-            <span class="eco-card-name">Instagram</span>
-          </div>
-          <div class="eco-card">
-            <span class="eco-card-label">Broadcast</span>
-            <span class="eco-card-name">Rádio &amp; TV</span>
-          </div>
-          <div class="eco-card dark">
-            <span class="eco-card-label">Imprensa</span>
-            <span class="eco-card-name">Portais</span>
-          </div>
+        <div class="eco-visual">
+          <span class="eco-tag">TikTok</span>
+          <span class="eco-tag">YouTube</span>
+          <span class="eco-tag">Spotify</span>
+          <span class="eco-tag">Instagram</span>
+          <span class="eco-core">nejo.</span>
         </div>
       </div>
     </div>
