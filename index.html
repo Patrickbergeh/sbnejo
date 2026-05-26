@@ -49,9 +49,9 @@
     body::before { left: 24px; }
     body::after { right: 24px; }
 
-    @media (min-width: 1248px) {
-      body::before { left: calc((100vw - 1200px) / 2 - 16px); }
-      body::after  { right: calc((100vw - 1200px) / 2 - 16px); }
+    @media (min-width: 1328px) {
+      body::before { left: calc((100vw - 1280px) / 2 - 12px); }
+      body::after  { right: calc((100vw - 1280px) / 2 - 12px); }
     }
 
     @media (max-width: 720px) {
@@ -63,13 +63,17 @@
 
     .container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 40px;
     }
 
-    @media (max-width: 720px) {
-      .container { padding: 0 28px; }
+    @media (max-width: 900px) {
+      .container { padding: 0 32px; }
+    }
+
+    @media (max-width: 520px) {
+      .container { padding: 0 24px; }
     }
 
     /* NAV */
@@ -87,9 +91,17 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 24px;
-      max-width: 1200px;
+      padding: 20px 40px;
+      max-width: 1280px;
       margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .nav-inner { padding: 18px 32px; }
+    }
+
+    @media (max-width: 520px) {
+      .nav-inner { padding: 16px 24px; }
     }
 
     .brand {
@@ -158,40 +170,22 @@
 
     /* HERO */
     .hero {
-      padding: 72px 0 56px;
+      padding: 96px 0 88px;
       position: relative;
       overflow: hidden;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--pink-soft);
-      color: var(--pink);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      margin-bottom: 28px;
-    }
-
-    .eyebrow::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--pink);
-      border-radius: 50%;
+    @media (max-width: 720px) {
+      .hero { padding: 56px 0 48px; }
     }
 
     h1 {
-      font-size: clamp(44px, 7vw, 96px);
-      line-height: 1.02;
+      font-size: clamp(40px, 6.5vw, 88px);
+      line-height: 1.04;
       letter-spacing: -0.035em;
-      margin: 0 0 28px;
+      margin: 0 0 32px;
       font-weight: 600;
-      max-width: 14ch;
+      max-width: 16ch;
     }
 
     h1 .accent {
@@ -205,15 +199,15 @@
     .manifesto p,
     .pillar p,
     .cta p {
-      font-size: clamp(15px, 1.2vw, 18px);
+      font-size: clamp(15px, 1.15vw, 17px);
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.65;
       font-weight: 400;
     }
 
     .lead {
-      max-width: 58ch;
-      margin: 0 0 40px;
+      max-width: 68ch;
+      margin: 0 0 44px;
     }
 
     .lead strong,
@@ -235,126 +229,117 @@
 
     /* SECTIONS */
     section {
-      padding: 56px 0;
+      padding: 88px 0;
       border-top: 1px solid var(--line);
     }
 
-    .section-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
+    @media (max-width: 720px) {
+      section { padding: 56px 0; }
     }
 
     .section-tag {
       display: inline-block;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
       color: var(--pink);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 16px;
+      letter-spacing: 0.14em;
+      margin-bottom: 20px;
     }
 
     h2 {
-      font-size: clamp(32px, 4.5vw, 56px);
-      line-height: 1.05;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.08;
       letter-spacing: -0.025em;
       margin: 0 0 24px;
       font-weight: 600;
-      max-width: 18ch;
+      max-width: 22ch;
     }
 
     .section-lead {
-      max-width: 60ch;
+      max-width: 64ch;
     }
 
     /* MANIFESTO */
     .manifesto {
       background: var(--ink);
       color: #fff;
-      border-radius: 32px;
-      padding: clamp(40px, 6vw, 72px);
+      border-radius: 28px;
+      padding: clamp(40px, 7vw, 96px);
       margin: 0 auto;
     }
 
     .manifesto h2 {
       color: #fff;
-      max-width: 22ch;
+      max-width: 24ch;
+      margin-bottom: 32px;
     }
 
     .manifesto .accent { color: var(--pink); font-style: italic; }
 
     .manifesto p {
-      color: rgba(255, 255, 255, 0.75);
-      max-width: 65ch;
-      margin: 0 0 16px;
+      color: rgba(255, 255, 255, 0.72);
+      max-width: 68ch;
+      margin: 0 0 20px;
     }
+
+    .manifesto p:last-child { margin-bottom: 0; }
 
     /* PILLARS */
     .pillars {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 32px;
+      gap: 16px;
+      margin-top: 48px;
     }
 
     .pillar {
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 22px 22px 24px;
+      border-radius: 18px;
+      padding: 32px 28px 30px;
       background: #fff;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 14px;
     }
 
     .pillar-num {
       font-size: 11px;
       color: var(--pink);
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
     }
 
     .pillar h3 {
-      font-size: 17px;
-      letter-spacing: -0.015em;
+      font-size: 20px;
+      letter-spacing: -0.018em;
       margin: 0;
       font-weight: 600;
-      line-height: 1.25;
+      line-height: 1.2;
     }
 
     .pillar p {
       margin: 0;
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 15px;
+      line-height: 1.55;
     }
 
-    @media (max-width: 900px) {
-      .pillars { grid-template-columns: 1fr; }
+    @media (max-width: 720px) {
+      .pillars { grid-template-columns: 1fr; gap: 12px; }
+      .pillar { padding: 24px 22px; }
     }
 
     /* STATS */
-    .stats-section { padding: 64px 0; }
-
     .stats-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
+      margin-bottom: 56px;
+      max-width: 640px;
     }
 
     .stats-head h2 {
       margin: 0;
-      font-size: clamp(28px, 3.2vw, 40px);
-      max-width: 18ch;
+      font-size: clamp(28px, 3vw, 40px);
+      max-width: 22ch;
     }
-
-    .stats-head .section-tag { margin-bottom: 8px; }
 
     .stats {
       display: grid;
@@ -364,9 +349,12 @@
     }
 
     .stat {
-      padding: 32px 24px;
+      padding: 40px 28px 36px;
       border-right: 1px solid var(--line);
     }
+
+    .stat:first-child { padding-left: 0; }
+    .stat:last-child { padding-right: 0; }
 
     .stat:last-child { border-right: none; }
 
@@ -402,93 +390,81 @@
     /* ECOSYSTEM */
     .eco-grid {
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 48px;
-      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
     }
 
-    .eco-visual {
-      aspect-ratio: 1 / 1;
-      background: var(--pink);
-      border-radius: 32px;
-      position: relative;
-      overflow: hidden;
+    .eco-media {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .eco-card {
+      background: var(--pink-soft);
+      border-radius: 16px;
+      padding: 22px;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 130px;
+      transition: background 0.2s ease;
     }
 
-    .eco-visual::before,
-    .eco-visual::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .eco-visual::before { width: 60%; height: 60%; }
-    .eco-visual::after { width: 90%; height: 90%; }
-
-    .eco-core {
-      position: relative;
-      z-index: 2;
+    .eco-card.dark {
+      background: var(--ink);
       color: #fff;
-      font-size: clamp(36px, 5vw, 56px);
+    }
+
+    .eco-card.dark .eco-card-label { color: rgba(255, 255, 255, 0.6); }
+
+    .eco-card-name {
+      font-size: 18px;
       font-weight: 600;
-      letter-spacing: -0.03em;
-      font-style: italic;
+      letter-spacing: -0.01em;
     }
 
-    .eco-tag {
-      position: absolute;
-      background: #fff;
-      color: var(--ink);
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 14px;
+    .eco-card-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
       font-weight: 500;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      z-index: 3;
     }
-
-    .eco-tag:nth-child(2) { top: 12%; left: 8%; }
-    .eco-tag:nth-child(3) { top: 22%; right: 6%; }
-    .eco-tag:nth-child(4) { bottom: 28%; left: 4%; }
-    .eco-tag:nth-child(5) { bottom: 12%; right: 14%; }
-    .eco-tag:nth-child(6) { top: 50%; right: -2%; }
 
     .eco-list { list-style: none; padding: 0; margin: 32px 0 0; }
     .eco-list li {
       padding: 18px 0;
       border-top: 1px solid var(--line);
-      font-size: 18px;
+      font-size: 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .eco-list li:last-child { border-bottom: 1px solid var(--line); }
-    .eco-list .arrow { color: var(--pink); font-size: 22px; }
+    .eco-list .arrow { color: var(--pink); font-size: 20px; }
 
     @media (max-width: 900px) {
-      .eco-grid { grid-template-columns: 1fr; }
+      .eco-grid { grid-template-columns: 1fr; gap: 40px; }
     }
 
     /* CTA */
     .cta {
       text-align: center;
-      padding: 80px 24px;
+      padding: clamp(56px, 8vw, 104px) 32px;
       background: var(--pink-soft);
-      border-radius: 32px;
+      border-radius: 28px;
       margin: 0 auto;
     }
 
     .cta h2 {
-      margin: 0 auto 24px;
-      max-width: 16ch;
+      margin: 0 auto 20px;
+      max-width: 18ch;
     }
 
     .cta p {
-      max-width: 50ch;
+      max-width: 54ch;
       margin: 0 auto 36px;
     }
 
@@ -502,7 +478,7 @@
     /* FOOTER */
     footer {
       border-top: 1px solid var(--line);
-      padding: 40px 0;
+      padding: 48px 0;
       color: var(--muted);
       font-size: 14px;
     }
@@ -512,11 +488,15 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 20px;
     }
 
-    .footer-links { display: flex; gap: 24px; }
+    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
     .footer-links a:hover { color: var(--pink); }
+
+    @media (max-width: 520px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+    }
 
   </style>
 </head>
@@ -578,7 +558,7 @@
         todo dia</strong>.
       </p>
 
-      <div class="pillars" style="margin-top: 40px;">
+      <div class="pillars">
         <div class="pillar">
           <span class="pillar-num">01, AUDIÊNCIA</span>
           <h3>Mais gente assistindo.</h3>
@@ -599,13 +579,11 @@
     </div>
   </section>
 
-  <section class="stats-section">
+  <section>
     <div class="container">
       <div class="stats-head">
-        <div>
-          <span class="section-tag">Em números</span>
-          <h2>O impacto da Nejo no sertanejo.</h2>
-        </div>
+        <span class="section-tag">Em números</span>
+        <h2>O impacto da Nejo no sertanejo.</h2>
       </div>
       <div class="stats">
         <div class="stat">
@@ -631,14 +609,6 @@
   <section id="ecossistema">
     <div class="container">
       <div class="eco-grid">
-        <div class="eco-visual">
-          <span class="eco-tag">TikTok</span>
-          <span class="eco-tag">YouTube</span>
-          <span class="eco-tag">Spotify</span>
-          <span class="eco-tag">Instagram</span>
-          <span class="eco-tag">Rádio</span>
-          <span class="eco-core">nejo.</span>
-        </div>
         <div>
           <span class="section-tag">Em todas as mídias</span>
           <h2>O artista presente onde o público tá.</h2>
@@ -654,6 +624,32 @@
             <li>Rádio, TV e podcasts <span class="arrow">→</span></li>
             <li>Portais e influenciadores <span class="arrow">→</span></li>
           </ul>
+        </div>
+        <div class="eco-media">
+          <div class="eco-card">
+            <span class="eco-card-label">Vídeo</span>
+            <span class="eco-card-name">TikTok</span>
+          </div>
+          <div class="eco-card dark">
+            <span class="eco-card-label">Vídeo</span>
+            <span class="eco-card-name">YouTube</span>
+          </div>
+          <div class="eco-card dark">
+            <span class="eco-card-label">Áudio</span>
+            <span class="eco-card-name">Spotify</span>
+          </div>
+          <div class="eco-card">
+            <span class="eco-card-label">Social</span>
+            <span class="eco-card-name">Instagram</span>
+          </div>
+          <div class="eco-card">
+            <span class="eco-card-label">Broadcast</span>
+            <span class="eco-card-name">Rádio &amp; TV</span>
+          </div>
+          <div class="eco-card dark">
+            <span class="eco-card-label">Imprensa</span>
+            <span class="eco-card-name">Portais</span>
+          </div>
         </div>
       </div>
     </div>
