@@ -33,7 +33,37 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.6s ease, color 0.6s ease;
     }
+
+    /* DARK MODE (triggered while pilares section is in view) */
+    body.is-dark { background-color: var(--ink); color: #fff; }
+    body.is-dark::before,
+    body.is-dark::after { background: rgba(255, 255, 255, 0.12); }
+    body.is-dark nav {
+      background: rgba(10, 10, 10, 0.85);
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+    body.is-dark .nav-links a { color: #fff; }
+    body.is-dark .btn-ghost {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    body.is-dark .btn-ghost:hover { border-color: #fff; }
+    body.is-dark section { border-top-color: rgba(255, 255, 255, 0.08); }
+    body.is-dark h2 { color: #fff; }
+    body.is-dark .section-lead,
+    body.is-dark .lead,
+    body.is-dark .cta p { color: rgba(255, 255, 255, 0.7); }
+    body.is-dark .pillar {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    body.is-dark .pillar h3 { color: #fff; }
+    body.is-dark .pillar p { color: rgba(255, 255, 255, 0.7); }
+    body.is-dark .pillar p strong,
+    body.is-dark .section-lead strong,
+    body.is-dark .lead strong { color: #fff; }
 
     /* SIDE RAILS */
     body::before,
@@ -269,6 +299,14 @@
       border-radius: 28px;
       padding: clamp(40px, 7vw, 96px);
       margin: 0 auto;
+      transform: scale(var(--zoom, 0.82));
+      transform-origin: center;
+      transition: transform 0.15s ease-out;
+      will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .manifesto { transform: none; }
     }
 
     .manifesto h2 {
@@ -620,7 +658,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="stats">
     <div class="container">
       <div class="stats-head">
         <span class="section-tag">Em números</span>
@@ -702,6 +740,59 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const manifestoEl = document.querySelector('.manifesto');
+      const manifestoSection = document.getElementById('manifesto');
+      const pilaresSection = document.getElementById('pilares');
+      const statsSection = document.getElementById('stats');
+      const body = document.body;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let ticking = false;
+
+      function update() {
+        const vh = window.innerHeight;
+
+        // 1) Manifesto zoom: dramatic 0.82 → 1.06 ramp,
+        //                    completes earlier on mobile so the punch-in is clear
+        if (manifestoEl && manifestoSection && !prefersReduced) {
+          const r = manifestoSection.getBoundingClientRect();
+          const isMobile = window.innerWidth < 720;
+          const enterDistance = isMobile ? vh * 0.45 : vh * 0.85;
+          const t = Math.max(0, Math.min(1, (vh - r.top) / enterDistance));
+          const eased = 1 - Math.pow(1 - t, 3);
+          const zoom = 0.82 + eased * 0.24;
+          manifestoEl.style.setProperty('--zoom', zoom.toFixed(3));
+        }
+
+        // 2) Dark mode: ON when pilares' top crosses the bottom third of the viewport,
+        //               OFF when stats' top crosses the same line
+        if (pilaresSection && statsSection) {
+          const trigger = vh * 0.65;
+          const pilaresTop = pilaresSection.getBoundingClientRect().top;
+          const statsTop = statsSection.getBoundingClientRect().top;
+          const inDarkZone = pilaresTop < trigger && statsTop > trigger;
+          body.classList.toggle('is-dark', inDarkZone);
+        }
+
+        ticking = false;
+      }
+
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      update();
+    })();
+  </script>
 
 </body>
 </html>
