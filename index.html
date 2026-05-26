@@ -207,8 +207,29 @@
       overflow: hidden;
     }
 
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='42'%3E%3Crect width='4' height='4' x='0' y='0' rx='1' fill='%230a0a0a' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 42px 42px;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 92%);
+      mask-image: linear-gradient(to bottom, #000 0%, transparent 92%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero > .container {
+      position: relative;
+      z-index: 1;
+    }
+
     @media (max-width: 720px) {
       .hero { padding: 56px 0 48px; }
+      .hero::before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='3' height='3' x='0' y='0' rx='1' fill='%230a0a0a' opacity='0.05'/%3E%3C/svg%3E");
+        background-size: 32px 32px;
+      }
     }
 
     h1 {
