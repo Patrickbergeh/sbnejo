@@ -50,8 +50,8 @@
     body::after { right: 24px; }
 
     @media (min-width: 1248px) {
-      body::before { left: calc((100vw - 1200px) / 2 + 8px); }
-      body::after  { right: calc((100vw - 1200px) / 2 + 8px); }
+      body::before { left: calc((100vw - 1200px) / 2 - 16px); }
+      body::after  { right: calc((100vw - 1200px) / 2 - 16px); }
     }
 
     @media (max-width: 720px) {
@@ -200,13 +200,32 @@
       font-weight: 500;
     }
 
-    .lead {
+    .lead,
+    .section-lead,
+    .manifesto p,
+    .pillar p,
+    .cta p {
       font-size: clamp(15px, 1.2vw, 18px);
       color: var(--muted);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .lead {
       max-width: 58ch;
       margin: 0 0 40px;
-      line-height: 1.55;
     }
+
+    .lead strong,
+    .section-lead strong,
+    .manifesto p strong,
+    .pillar p strong,
+    .cta p strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .manifesto p strong { color: #fff; }
 
     .hero-actions {
       display: flex;
@@ -249,10 +268,7 @@
     }
 
     .section-lead {
-      font-size: 19px;
-      color: var(--muted);
       max-width: 60ch;
-      line-height: 1.6;
     }
 
     /* MANIFESTO */
@@ -273,9 +289,8 @@
 
     .manifesto p {
       color: rgba(255, 255, 255, 0.75);
-      font-size: 19px;
       max-width: 65ch;
-      line-height: 1.65;
+      margin: 0 0 16px;
     }
 
     /* PILLARS */
@@ -308,9 +323,6 @@
     }
 
     .pillar p {
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.6;
       margin: 0;
     }
 
@@ -438,8 +450,6 @@
     }
 
     .cta p {
-      color: var(--muted);
-      font-size: 19px;
       max-width: 50ch;
       margin: 0 auto 36px;
     }
@@ -490,9 +500,9 @@
     <div class="container">
       <h1>Multiplicamos a <span class="accent">audiência</span> do sertanejo.</h1>
       <p class="lead">
-        A Nejo coloca o artista em todas as telas, do TikTok ao palco, do streaming
-        à rádio. Trabalhamos pra fazer cada nome do sertanejo ser visto por mais
-        gente, todo dia.
+        A Nejo coloca o artista em <strong>todas as telas</strong>, do TikTok ao palco,
+        do streaming à rádio. Trabalhamos pra fazer cada nome do sertanejo
+        <strong>ser visto por mais gente</strong>, todo dia.
       </p>
       <div class="hero-actions">
         <a href="#manifesto" class="btn btn-primary">O que a gente faz →</a>
@@ -507,13 +517,14 @@
         <span class="section-tag" style="color: var(--pink)">Manifesto</span>
         <h2>Cada artista merece ser <span class="accent">visto por mais gente</span>.</h2>
         <p>
-          A gente acredita que talento sem audiência é palco vazio. Por isso a Nejo
-          trabalha todo dia pra colocar o artista do sertanejo na frente do público
-          certo, em todas as plataformas, em todas as telas, em todos os feeds.
+          A gente acredita que <strong>talento sem audiência é palco vazio</strong>.
+          Por isso a Nejo trabalha todo dia pra colocar o artista do sertanejo na
+          frente do <strong>público certo</strong>, em todas as plataformas, em todas
+          as telas, em todos os feeds.
         </p>
         <p>
-          Mais views. Mais ouvintes. Mais fãs. Mais palco. A gente existe pra fazer
-          o sertanejo crescer, e ser visto do tamanho que merece.
+          <strong>Mais views. Mais ouvintes. Mais fãs. Mais palco.</strong> A gente
+          existe pra fazer o sertanejo crescer, e ser visto do tamanho que merece.
         </p>
       </div>
     </div>
@@ -524,25 +535,26 @@
       <span class="section-tag">Como a gente trabalha</span>
       <h2>Três frentes pra fazer o artista crescer.</h2>
       <p class="section-lead">
-        Cada ação da Nejo é pensada pra uma coisa só: aumentar a audiência do
-        sertanejo e colocar o artista na frente de mais gente, todo dia.
+        Cada ação da Nejo é pensada pra uma coisa só: <strong>aumentar a audiência
+        do sertanejo</strong> e colocar o artista na frente de <strong>mais gente,
+        todo dia</strong>.
       </p>
 
       <div class="pillars" style="margin-top: 40px;">
         <div class="pillar">
           <span class="pillar-num">01, AUDIÊNCIA</span>
           <h3>Mais gente assistindo.</h3>
-          <p>Estratégia de crescimento de público em todas as plataformas, do TikTok ao YouTube, do Instagram ao Spotify. Conteúdo que viraliza e fideliza.</p>
+          <p>Estratégia de <strong>crescimento de público</strong> em todas as plataformas, do TikTok ao YouTube, do Instagram ao Spotify. Conteúdo que <strong>viraliza e fideliza</strong>.</p>
         </div>
         <div class="pillar">
           <span class="pillar-num">02, MÍDIA</span>
           <h3>O artista em todo lugar.</h3>
-          <p>Distribuição inteligente de conteúdo em rádio, streaming, redes, portais e influenciadores. A gente garante presença onde o público tá.</p>
+          <p><strong>Distribuição inteligente</strong> de conteúdo em rádio, streaming, redes, portais e influenciadores. A gente garante <strong>presença onde o público tá</strong>.</p>
         </div>
         <div class="pillar">
           <span class="pillar-num">03, VISIBILIDADE</span>
           <h3>Holofote no nome certo.</h3>
-          <p>Posicionamento, narrativa e parcerias estratégicas pra colocar o artista no centro da conversa do mundo sertanejo.</p>
+          <p>Posicionamento, narrativa e <strong>parcerias estratégicas</strong> pra colocar o artista no <strong>centro da conversa</strong> do mundo sertanejo.</p>
         </div>
       </div>
 
@@ -582,9 +594,9 @@
           <span class="section-tag">Em todas as mídias</span>
           <h2>O artista presente onde o público tá.</h2>
           <p class="section-lead">
-            A gente coloca o sertanejo em todas as telas. Da playlist do streaming
-            ao feed da rede social, do clipe na TV ao podcast, onde tem público,
-            a Nejo coloca o artista na frente.
+            A gente coloca o sertanejo em <strong>todas as telas</strong>. Da playlist
+            do streaming ao feed da rede social, do clipe na TV ao podcast, onde tem
+            público, <strong>a Nejo coloca o artista na frente</strong>.
           </p>
 
           <ul class="eco-list">
@@ -603,7 +615,7 @@
       <div class="cta">
         <span class="section-tag">Bora crescer juntos?</span>
         <h2>Coloca seu nome no <span style="color: var(--pink); font-style: italic;">mapa</span>.</h2>
-        <p>É artista, empresário ou gravadora? A gente quer fazer o seu trabalho ser visto pelo Brasil inteiro.</p>
+        <p>É <strong>artista, empresário ou gravadora</strong>? A gente quer fazer o seu trabalho <strong>ser visto pelo Brasil inteiro</strong>.</p>
         <div class="cta-actions">
           <a href="mailto:oi@nejo.io" class="btn btn-primary">oi@nejo.io →</a>
           <a href="#" class="btn btn-ghost">Quero amplificar meu artista</a>
