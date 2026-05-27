@@ -8,8 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1486946804745086"
-       crossorigin="anonymous"></script>
   <style>
     :root {
       --pink: #FF1A85;
@@ -291,41 +289,43 @@
       section { padding: 56px 0; }
     }
 
-    /* INTERSECTION MARKERS — where side rails meet section borders */
+    /* INTERSECTION MARKERS — sparkle/4-point star at the line crossings */
     section::before,
     section::after,
     footer::before,
     footer::after {
       content: '';
       position: absolute;
-      top: -5px;
-      width: 10px;
-      height: 10px;
-      background: var(--line);
-      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 1v8M1 5h8' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
-              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 1v8M1 5h8' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+      top: -7px;
+      width: 14px;
+      height: 14px;
+      background: var(--ink);
+      opacity: 0.45;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M7 0L7.9 6.1L14 7L7.9 7.9L7 14L6.1 7.9L0 7L6.1 6.1Z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M7 0L7.9 6.1L14 7L7.9 7.9L7 14L6.1 7.9L0 7L6.1 6.1Z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
       z-index: 1;
       pointer-events: none;
     }
 
-    section::before, footer::before { left: 19px; }
-    section::after,  footer::after  { right: 19px; }
+    section::before, footer::before { left: 17px; }
+    section::after,  footer::after  { right: 17px; }
 
     @media (min-width: 1328px) {
-      section::before, footer::before { left: calc((100vw - 1280px) / 2 - 17px); }
-      section::after,  footer::after  { right: calc((100vw - 1280px) / 2 - 17px); }
+      section::before, footer::before { left: calc((100vw - 1280px) / 2 - 19px); }
+      section::after,  footer::after  { right: calc((100vw - 1280px) / 2 - 19px); }
     }
 
     @media (max-width: 720px) {
-      section::before, footer::before { left: 9px; }
-      section::after,  footer::after  { right: 9px; }
+      section::before, footer::before { left: 7px; }
+      section::after,  footer::after  { right: 7px; }
     }
 
     body.is-dark section::before,
     body.is-dark section::after,
     body.is-dark footer::before,
     body.is-dark footer::after {
-      background: rgba(255, 255, 255, 0.22);
+      background: #fff;
+      opacity: 0.35;
     }
 
     .section-tag {
@@ -670,15 +670,6 @@
       .cta-actions .btn { justify-content: center; width: 100%; }
     }
 
-    /* AD SLOT */
-    .ad-slot {
-      padding: 48px 0;
-    }
-
-    .ad-slot .adsbygoogle {
-      min-height: 90px;
-    }
-
     /* FOOTER */
     footer {
       border-top: 1px solid var(--line);
@@ -829,20 +820,6 @@
       </div>
     </div>
   </section>
-
-  <div class="ad-slot">
-    <div class="container">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-1486946804745086"
-           data-ad-slot="3983534119"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </div>
 
   <footer>
     <div class="container footer-inner">
