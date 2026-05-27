@@ -284,10 +284,48 @@
     section {
       padding: 88px 0;
       border-top: 1px solid var(--line);
+      position: relative;
     }
 
     @media (max-width: 720px) {
       section { padding: 56px 0; }
+    }
+
+    /* INTERSECTION MARKERS — where side rails meet section borders */
+    section::before,
+    section::after,
+    footer::before,
+    footer::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      width: 10px;
+      height: 10px;
+      background: var(--line);
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 1v8M1 5h8' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 1v8M1 5h8' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    section::before, footer::before { left: 19px; }
+    section::after,  footer::after  { right: 19px; }
+
+    @media (min-width: 1328px) {
+      section::before, footer::before { left: calc((100vw - 1280px) / 2 - 17px); }
+      section::after,  footer::after  { right: calc((100vw - 1280px) / 2 - 17px); }
+    }
+
+    @media (max-width: 720px) {
+      section::before, footer::before { left: 9px; }
+      section::after,  footer::after  { right: 9px; }
+    }
+
+    body.is-dark section::before,
+    body.is-dark section::after,
+    body.is-dark footer::before,
+    body.is-dark footer::after {
+      background: rgba(255, 255, 255, 0.22);
     }
 
     .section-tag {
@@ -632,12 +670,22 @@
       .cta-actions .btn { justify-content: center; width: 100%; }
     }
 
+    /* AD SLOT */
+    .ad-slot {
+      padding: 48px 0;
+    }
+
+    .ad-slot .adsbygoogle {
+      min-height: 90px;
+    }
+
     /* FOOTER */
     footer {
       border-top: 1px solid var(--line);
       padding: 48px 0;
       color: var(--muted);
       font-size: 14px;
+      position: relative;
     }
 
     .footer-inner {
@@ -781,6 +829,20 @@
       </div>
     </div>
   </section>
+
+  <div class="ad-slot">
+    <div class="container">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1486946804745086"
+           data-ad-slot="3983534119"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
 
   <footer>
     <div class="container footer-inner">
