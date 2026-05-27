@@ -296,36 +296,36 @@
     footer::after {
       content: '';
       position: absolute;
-      top: -6.5px;
-      width: 14px;
-      height: 14px;
-      background: var(--line);
-      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M7 0L7.9 6.1L14 7L7.9 7.9L7 14L6.1 7.9L0 7L6.1 6.1Z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
-              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M7 0L7.9 6.1L14 7L7.9 7.9L7 14L6.1 7.9L0 7L6.1 6.1Z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+      top: -7px;
+      width: 15px;
+      height: 15px;
+      background: rgba(10, 10, 10, 0.32);
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'%3E%3Cpath d='M7.5 0L8.5 6.5L15 7.5L8.5 8.5L7.5 15L6.5 8.5L0 7.5L6.5 6.5Z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'%3E%3Cpath d='M7.5 0L8.5 6.5L15 7.5L8.5 8.5L7.5 15L6.5 8.5L0 7.5L6.5 6.5Z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
       z-index: 1;
       pointer-events: none;
       transition: none;
       animation: none;
     }
 
-    section::before, footer::before { left: 17.5px; }
-    section::after,  footer::after  { right: 17.5px; }
+    section::before, footer::before { left: 17px; }
+    section::after,  footer::after  { right: 17px; }
 
     @media (min-width: 1328px) {
-      section::before, footer::before { left: calc((100vw - 1280px) / 2 - 18.5px); }
-      section::after,  footer::after  { right: calc((100vw - 1280px) / 2 - 18.5px); }
+      section::before, footer::before { left: calc((100vw - 1280px) / 2 - 19px); }
+      section::after,  footer::after  { right: calc((100vw - 1280px) / 2 - 19px); }
     }
 
     @media (max-width: 720px) {
-      section::before, footer::before { left: 7.5px; }
-      section::after,  footer::after  { right: 7.5px; }
+      section::before, footer::before { left: 7px; }
+      section::after,  footer::after  { right: 7px; }
     }
 
     body.is-dark section::before,
     body.is-dark section::after,
     body.is-dark footer::before,
     body.is-dark footer::after {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.4);
     }
 
     .section-tag {
